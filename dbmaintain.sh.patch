@@ -1,0 +1,32 @@
+82,98c82
+<   ## resolve links - $0 may be a link to dbmaintain's home
+<   PRG="$0"
+< 
+<   # need this for relative symlinks
+<   while [ -h "$PRG" ] ; do
+<     ls=`ls -ld "$PRG"`
+<     link=`expr "$ls" : '.*-> \(.*\)$'`
+<     if expr "$link" : '/.*' > /dev/null; then
+<       PRG="$link"
+<     else
+<       PRG="`dirname "$PRG"`/$link"
+<     fi
+<   done
+< 
+<   saveddir=`pwd`
+< 
+<   DBMAINTAIN_HOME=`dirname "$PRG"`
+---
+>   DBMAINTAIN_HOME=/usr/share/java/dbmaintain
+148c132
+< DBMAINTAIN_JAR="${DBMAINTAIN_HOME}/dbmaintain-2.4.jar"
+---
+> DBMAINTAIN_JAR="${DBMAINTAIN_HOME}/dbmaintain.jar"
+152,156c136
+<   if [ -f "$DBMAINTAIN_HOME/setJdbcDriver.sh" ] ; then
+<     . "$DBMAINTAIN_HOME/setJdbcDriver.sh"
+<   else
+<     . setJdbcDriver.sh
+<   fi
+---
+>   . /etc/dbmaintain.conf
